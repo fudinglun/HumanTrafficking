@@ -100,7 +100,7 @@ def get_batch(ids):
     for index in ids:
         row = df.loc[df['Unnamed: 0'] == index]
         label = int(float(row['ht']))
-        detail = clean_list_of_word(str(row['juicy_details']).split(' '), True)
+        detail = clean_list_of_word(str(row['juicy_details'].item()).split(' '), True)
         x_batch.append(detail)
         y_batch.append(label)
     x_batch = get_batch_embedding(x_batch)
